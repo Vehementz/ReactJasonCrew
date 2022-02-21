@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import CrewList from './components/CrewList';
 
 function App() {
   return (
@@ -14,15 +15,15 @@ function App() {
   <main>
     
     <h2>Ajouter un(e) Argonaute</h2>
-    <form method="POST" class="new-member-form">
+    <form method="POST" className="new-member-form">
       <label for="name">Nom de l&apos;Argonaute</label>
       <input id="name" name="name" type="text" placeholder="Charalampos" />
       <button type="submit">Envoyer</button>
     </form>
 
     <h2>Membres de l'équipage</h2>
-    <section class="member-list">
-      
+    <section className="member-list">
+      < CrewList />
     </section>
   </main>
   

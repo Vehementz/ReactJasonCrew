@@ -1,24 +1,29 @@
 import React from 'react';
+import { useState, useEffect} from 'react';
 import axios from 'axios';
+import "./crewList.css";
 
-function TeamList() {
-	const [teams, setTeams] = useState([]);
-	const teamUrl = "http://localhost:8000/api/team"
+function CrewList() {
+	const [members, setMembers] = useState([]);
+	const crewListUrl = "http://localhost:8000/api/crew";
 
 		useEffect (() => {
 			axios
-			.get(teamUrl)
+			.get(crewListUrl)
 			.then((res) => res.data)
-			.then((data) => setTeams(data))
+			.then((data) => setMembers(data))
 		}, [] )
 
 	return (
 		<div className="crewList">
-			{teams.map((team) => (
-				<div key={team.id}>
-					<TeamCard team={team} />
+            <div className="menberName">
+			{members.map((crew) => (
+				<div key={crew.memberId}>
+				<p> {crew.name} </p>
 				</div>
 			))}
+            </div>
+
 		</div>
 )}
 

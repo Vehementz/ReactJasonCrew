@@ -1,0 +1,16 @@
+.crewList {
+    display: flex;
+    font-size: 1.3rem;
+    width: 70%;
+    text-align: center;
+    marging: auto;
+}
+
+.menberName {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 30%;
+}
