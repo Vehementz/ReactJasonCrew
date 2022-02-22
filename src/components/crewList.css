@@ -1,16 +1,14 @@
 .crewList {
-    display: flex;
     font-size: 1.3rem;
-    width: 70%;
+    width: 100%;
     text-align: center;
     margin: auto;
+    gap: 10px;
+
 }
 
 .menberName {
-    margin: auto;
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    width: 30%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }

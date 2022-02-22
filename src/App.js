@@ -1,8 +1,26 @@
 import './App.css';
 import React from 'react';
+import { useState} from 'react';
 import CrewList from './components/CrewList';
+import axios from 'axios';
 
 function App() {
+
+  const [name, setName] = useState(null);
+
+  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:8000/api/crew", { name });
+      setName(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+
   return (
     <div className="App">
      <header>
@@ -15,9 +33,12 @@ function App() {
   <main>
     
     <h2>Ajouter un(e) Argonaute</h2>
-    <form method="POST" className="new-member-form">
+    <form className="new-member-form" onSubmit={handleSubmit}>
+    {/* <form method="POST" className="new-member-form" onSubmit={handleSubmit}>  old code*/}
+
+      
       <label for="name">Nom de l&apos;Argonaute</label>
-      <input id="name" name="name" type="text" placeholder="Charalampos" onChange={(e) => handleInputChange} />
+      <input id="name" name="name" type="text" placeholder="Charalampos" onChange={(e) => setName(e.target.value)} />
       <button type="submit">Envoyer</button>
     </form>
 
